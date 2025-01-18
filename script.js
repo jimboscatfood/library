@@ -15,3 +15,53 @@ theHobbit.info(); // "The Hobbit by J.R.R. Tolkien, 295 pages, not read yet"
 
 console.log(theHobbit.info());
 
+
+const myLibrary = [];
+
+
+function addBookToLibrary(title,author,pages,read) {
+    const newBook = new Book(title,author,pages,read);
+    
+    myLibrary.push(newBook);
+}
+
+//trial 
+addBookToLibrary("title1","author1",1,0);
+addBookToLibrary("title2","'author2'",2,1);
+addBookToLibrary("title3","author3",3,0);
+addBookToLibrary("title4","author4",4,1);
+addBookToLibrary("title5","author5",5,0);
+console.table(myLibrary);
+
+const library = document.querySelector('.library');
+
+
+function displayBook() {
+    for (let i = 0; i < myLibrary.length; i++) {
+        const card = document.createElement("div");
+        const book = myLibrary[i];
+        library.appendChild(card);
+
+        for (let j = 0; j < Object.keys(book).length; j++) {
+            // IF object property does not have a value of function
+            // THEN extract the info
+            if (typeof Object.values(book)[j] !== "function") {
+                const cardContent = document.createElement("p");
+                const keyString = String(Object.keys(book)[j]);
+                const valueString = String(Object.values(book)[j]);
+                const capKey = keyString.charAt(0).toUpperCase() + keyString.slice(1);
+                const capValue = valueString.charAt(0).toUpperCase() + valueString.slice(1);
+
+                const entry = document.createTextNode(`${capKey}: ${capValue}`);
+                cardContent.appendChild(entry);
+                card.appendChild(cardContent);
+                
+            }
+        
+         }
+    }
+}
+
+displayBook();
+
+
