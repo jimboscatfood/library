@@ -55,13 +55,16 @@ function displayBook() {
                 const entry = document.createTextNode(`${capKey}: ${capValue}`);
                 cardContent.appendChild(entry);
                 card.appendChild(cardContent);
-                
             }
-        
-         }
+        }
     }
 }
 
 displayBook();
 
+const newBook = document.getElementById("newBook");
+const inputWindow = document.getElementById("addBook");
 
+newBook.addEventListener("click",() => {
+    inputWindow.showModal();  
+})
