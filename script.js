@@ -65,6 +65,13 @@ displayBook();
 const newBook = document.getElementById("newBook");
 const inputWindow = document.getElementById("addBook");
 
+const cancelBtn = document.getElementById("cancel");
+
 newBook.addEventListener("click",() => {
     inputWindow.showModal();  
 })
+
+cancelBtn.addEventListener("click", () => {
+    inputWindow.close();
+})
+
