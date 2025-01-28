@@ -52,12 +52,13 @@ function displayBook() {
             // THEN extract the info
             if (typeof Object.values(book)[j] !== "function") {
                 const cardContent = document.createElement("p");
-                const keyString = String(Object.keys(book)[j]);
+
+                const keyString = String(document.querySelectorAll("label")[j].textContent);
                 const valueString = String(Object.values(book)[j]);
                 const capKey = keyString.charAt(0).toUpperCase() + keyString.slice(1);
                 const capValue = valueString.charAt(0).toUpperCase() + valueString.slice(1);
 
-                const entry = document.createTextNode(`${capKey}: ${capValue}`);
+                const entry = document.createTextNode(`${capKey} ${capValue}`);
                 cardContent.appendChild(entry);
                 card.appendChild(cardContent);
             }
