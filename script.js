@@ -72,6 +72,7 @@ const inputWindow = document.getElementById("addBook");
 //make reference to dialog buttons
 const cancelBtn = document.getElementById("cancel");
 const submitBtn = document.getElementById("submit");
+const form = document.querySelector("form");
 
 newBook.addEventListener("click",() => {
     inputWindow.showModal();  
@@ -81,16 +82,19 @@ cancelBtn.addEventListener("click", () => {
     inputWindow.close();
 })
 
-submitBtn.addEventListener("click", (event) => {
+form.addEventListener("submit", (event) => {
     event.preventDefault();
     //make reference to input entries
     const title = inputWindow.querySelector("#title").value;
     const author = inputWindow.querySelector("#author").value;
     const pages = parseInt(inputWindow.querySelector("#pages").value);
-    const read = inputWindow.querySelector("#read").value === "Read"?true:false;
+    const read = inputWindow.querySelector("#read").value === "yes"?true:false;
 
     addBookToLibrary(title, author, pages, read);
     displayBook();
     inputWindow.close();
 })
 
+inputWindow.addEventListener("close", () => {
+    form.reset();
+})

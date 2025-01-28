@@ -10,33 +10,33 @@
 <body>
     <h1>Library</h1>
     <button id="newBook">New Book</button>
+    <dialog id="addBook">
+        <form id="book">
+            <p>
+                <label for="title">Title:</label>
+                <input id="title" type="text" name="title" required>
+            </p>
+            <p>
+                <label>Author:</label>
+                <input id="author" type="text" name="author" required>
+            </p>
+            <p>
+                <label>Pages:</label>
+                <input id="pages" type="number" name="pages">
+            </p>
+            <p>
+                <label for="read">Status:</label>
+                <select id="read" name="read">
+                    <option value="yes">Read</option>
+                    <option value="no">Not read yet</option>
+                </select>
+            </p>
+            <button id="cancel" type="button" formnovalidate>Cancel</button>
+            <button type="submit" id="submit">Submit</button>
+        </form>
+    </dialog>
     <div class="library">
-        <dialog id="addBook">
-            <form id="book">
-                <p>
-                    <label for="title">Title:</label>
-                    <input id="title" type="text" name="title" required>
-                </p>
-                <p>
-                    <label>Author:</label>
-                    <input id="author" type="text" name="author" required>
-                </p>
-                <p>
-                    <label>Pages:</label>
-                    <input id="pages" type="tel" name="pages">
-                </p>
-                <p>
-                    <label for="read">Read? :</label>
-                    <select id="read" name="read">
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                </p>
-                <button id="cancel">Cancel</button>
-                <button type="submit" id="submit">Submit</button>
-            </form>
-        </dialog>
-     
+        
     </div>
     
 </body>
