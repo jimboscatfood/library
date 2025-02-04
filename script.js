@@ -9,6 +9,8 @@ function Book (title,author,pages,read) {
     } 
 }
 
+
+
 const theHobbit = new Book ("The Hobbit", "J.R.R. Tolkien", 295, false);
 
 theHobbit.info(); // "The Hobbit by J.R.R. Tolkien, 295 pages, not read yet"
@@ -40,9 +42,10 @@ function displayBook() {
     while (library.hasChildNodes()) {
     library.removeChild(library.firstChild);
     }
+    const card = document.createElement("div");
     for (let i = 0; i < myLibrary.length; i++) {
-        const card = document.createElement("div");
-        card.setAttribute("id",`${i}`);
+        
+        // card.setAttribute("id",`${i}`);
         card.setAttribute("class", "card");
         const book = myLibrary[i];
         library.appendChild(card);
@@ -63,6 +66,10 @@ function displayBook() {
                 card.appendChild(cardContent);
             }
         }
+        const removeBtn = document.createElement("button");
+        removeBtn.setAttribute("id",`${i}`);
+        removeBtn.textContent = "Remove";
+        card.appendChild(removeBtn);
     }
 }
 
