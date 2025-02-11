@@ -42,10 +42,10 @@ function displayBook() {
     while (library.hasChildNodes()) {
     library.removeChild(library.firstChild);
     }
-    const card = document.createElement("div");
+    
     for (let i = 0; i < myLibrary.length; i++) {
-        
-        // card.setAttribute("id",`${i}`);
+        const card = document.createElement("div");
+        card.setAttribute("id",`card${i}`);
         card.setAttribute("class", "card");
         const book = myLibrary[i];
         library.appendChild(card);
