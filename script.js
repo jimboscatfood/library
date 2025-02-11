@@ -67,13 +67,22 @@ function displayBook() {
             }
         }
         const removeBtn = document.createElement("button");
+        removeBtn.setAttribute("class", "removeBtn");
         removeBtn.setAttribute("id",`${i}`);
         removeBtn.textContent = "Remove";
         card.appendChild(removeBtn);
     }
 }
 
-// displayBook();
+//remove book of index of the id attribute
+library.addEventListener("click", (e) => {
+    const target = e.target;
+    if (target.className === "removeBtn") {
+        myLibrary.splice(target.id,1);
+        displayBook();
+    }
+})
+
 //make reference to new book button and the dialog element
 const newBook = document.getElementById("newBook");
 const inputWindow = document.getElementById("addBook");
