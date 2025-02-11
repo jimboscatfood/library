@@ -104,7 +104,7 @@ form.addEventListener("submit", (event) => {
     //make reference to input entries
     const title = inputWindow.querySelector("#title").value;
     const author = inputWindow.querySelector("#author").value;
-    const pages = parseInt(inputWindow.querySelector("#pages").value);
+    const pages = inputWindow.querySelector("#pages").value !== "NaN"?inputWindow.querySelector("#pages").value:" ";
     const read = inputWindow.querySelector("#read").value === "yes"?true:false;
 
     addBookToLibrary(title, author, pages, read);
