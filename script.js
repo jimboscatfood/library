@@ -66,6 +66,11 @@ function displayBook() {
                 card.appendChild(cardContent);
             }
         }
+        const readStatus = document.createElement("button");
+        readStatus.setAttribute("class", "readStatus");
+        readStatus.textContent = book.read === "Read"?"Unread":"Read";
+        card.appendChild(readStatus);
+
         const removeBtn = document.createElement("button");
         removeBtn.setAttribute("class", "removeBtn");
         removeBtn.setAttribute("id",`${i}`);
