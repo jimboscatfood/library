@@ -9,6 +9,10 @@ function Book (title,author,pages,read) {
     } 
 }
 
+// Create prototype function for Book 
+Book.prototype.toggleRead = function () {
+    this.read = this.read === "Read"? "Not read yet":"Read";
+}
 
 
 const theHobbit = new Book ("The Hobbit", "J.R.R. Tolkien", 295, false);
@@ -119,4 +123,13 @@ form.addEventListener("submit", (event) => {
 
 inputWindow.addEventListener("close", () => {
     form.reset();
+})
+
+library.addEventListener("click", (e) => {
+    const target = e.target;
+    if (target.className === "readStatus") {
+        const bookIndex = target.nextSibling.id;
+        myLibrary[bookIndex].toggleRead();
+        displayBook();
+    }
 })
