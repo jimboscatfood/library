@@ -9,7 +9,9 @@
 </head>
 <body>
     <h1>Library</h1>
-    <button id="newBook">New Book</button>
+    <div class="newBook">
+        <button id="newBook">New Book</button>
+    </div>
     <dialog id="addBook">
         <form id="userInput">
             <p>
@@ -31,8 +33,10 @@
                     <option value="no">Not read yet</option>
                 </select>
             </p>
-            <button id="cancel" type="button" formnovalidate>Cancel</button>
-            <button type="submit" id="submit">Submit</button>
+            <p>
+                <button id="cancel" type="button" formnovalidate>Cancel</button>
+                <button type="submit" id="submit">Submit</button>
+            </p>
         </form>
     </dialog>
     <div class="library">
