@@ -1,50 +1,38 @@
 // Constructor for book objects
-function Book (title,author,pages,read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read? "Read":"Not read yet";
-    this.info = function () {
-        return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;         
-    } 
+// Refactor constructor to class
+class Book {
+    constructor (title,author,pages,read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read? "Read":"Not read yet";
+        this.info = function () {
+            return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;         
+        }
+    }
+    //Since class methods are installed to the prototype property of the class
+    //the toogleRead function is now moved inside the Book class
+    toggleRead () {
+        this.read = this.read === "Read"? "Not read yet":"Read";
+    }
 }
 
-// Create prototype function for Book 
-Book.prototype.toggleRead = function () {
-    this.read = this.read === "Read"? "Not read yet":"Read";
-}
-
-
-const theHobbit = new Book ("The Hobbit", "J.R.R. Tolkien", 295, false);
-
-theHobbit.info(); // "The Hobbit by J.R.R. Tolkien, 295 pages, not read yet"
-
-console.log(theHobbit.info());
-
+// const theHobbit = new Book ("The Hobbit", "J.R.R. Tolkien", 295, false);
+// theHobbit.info(); // "The Hobbit by J.R.R. Tolkien, 295 pages, not read yet"
+// console.log(theHobbit.info());
 
 const myLibrary = [];
 
-
 function addBookToLibrary(title,author,pages,read) {
     const newBook = new Book(title,author,pages,read);
-    
     myLibrary.push(newBook);
 }
 
-//trial 
-// addBookToLibrary("title1","author1",1,0);
-// addBookToLibrary("title2","author2",2,1);
-// addBookToLibrary("title3","author3",3,0);
-// addBookToLibrary("title4","author4",4,1);
-// addBookToLibrary("title5","author5",5,0);
-// console.table(myLibrary);
-
 const library = document.querySelector('.library');
-
 
 function displayBook() {
     while (library.hasChildNodes()) {
-    library.removeChild(library.firstChild);
+        library.removeChild(library.firstChild);
     }
     
     for (let i = 0; i < myLibrary.length; i++) {
@@ -72,7 +60,7 @@ function displayBook() {
         }
         const readStatus = document.createElement("button");
         readStatus.setAttribute("class", "readStatus");
-        readStatus.textContent = book.read === "Read"?"Unread":"Read";
+        readStatus.textContent = book.read === "Read"?'Mark as Unread':"Mark as Read";
         card.appendChild(readStatus);
 
         const removeBtn = document.createElement("button");
